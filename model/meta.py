@@ -8,13 +8,8 @@ __date__ ="$Apr 17, 2014 11:06:43 AM$"
 
 """SQLAlchemy Metadata and Session object"""
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import scoped_session
-from sqlalchemy.orm import sessionmaker
 
-__all__ = ['Base', 'MetadataSession']
-
-# SQLAlchemy session manager. Updated by model.init_model()
-MetadataSession = scoped_session(sessionmaker())
+__all__ = ['Base']
 
 # The declarative Base
 Base = declarative_base()

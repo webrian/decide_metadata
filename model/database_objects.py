@@ -8,7 +8,7 @@ __date__ = "$Apr 17, 2014 11:09:03 AM$"
 
 import hashlib
 
-from decide_metadata.model.meta import Base
+from .meta import Base
 from sqlalchemy import Boolean
 from sqlalchemy import CheckConstraint
 from sqlalchemy import Column
@@ -99,6 +99,7 @@ class Variable(Base):
     is_in_statable = Column(Boolean)
     is_in_gis_downloadable = Column(Boolean)
     fk_privilege = Column(Integer, ForeignKey('metadata.privileges.gid'))
+    privilege = relationship("Privilege")
     fk_category = Column(Integer, ForeignKey('metadata.categories.gid'))
     fk_source = Column(Integer, ForeignKey('metadata.sources.gid'))
     fk_owner = Column(Integer, ForeignKey('metadata.owners.gid'))
