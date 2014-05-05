@@ -28,6 +28,7 @@ class Category(Base):
     name_en = Column(String(256), nullable=False)
     name_lo = Column(String(256), nullable=False)
     order = Column(Integer, nullable=False)
+    layers = relationship("Layer", backref="category")
 
 class Privilege(Base):
     __tablename__ = 'privileges'
@@ -76,8 +77,8 @@ class Layer(Base):
     gid = Column(Integer, primary_key=True)
     url = Column(String(256), nullable=False)
     layername = Column(String(256), nullable=False)
-    name_en = Column(String(256), nullable=False)
-    name_lo = Column(String(256), nullable=False)
+    label_en = Column(String(256), nullable=False)
+    label_lo = Column(String(256), nullable=False)
     description_en = Column(String(256))
     description_lo = Column(String(256))
     type = Column(String(256))
