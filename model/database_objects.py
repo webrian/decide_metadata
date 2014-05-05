@@ -29,6 +29,7 @@ class Category(Base):
     name_lo = Column(String(256), nullable=False)
     order = Column(Integer, nullable=False)
     layers = relationship("Layer", backref="category")
+    variables = relationship("Variable", backref="category")
 
 class Privilege(Base):
     __tablename__ = 'privileges'
