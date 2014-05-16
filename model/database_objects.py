@@ -30,7 +30,7 @@ class Category(Base):
     order = Column(Integer, nullable=False)
     layers = relationship("Layer", backref="category")
     variables = relationship("Variable", backref="category")
-
+    
 class Privilege(Base):
     __tablename__ = 'privileges'
     __table_args__ = {"schema": "metadata"}
@@ -105,6 +105,7 @@ class Variable(Base):
     fk_category = Column(Integer, ForeignKey('metadata.categories.gid'))
     fk_source = Column(Integer, ForeignKey('metadata.sources.gid'))
     fk_owner = Column(Integer, ForeignKey('metadata.owners.gid'))
+    orm_object = Column(String)
     fk_datatype = Column(Integer, ForeignKey('metadata.datatypes.gid'))
     datatype = relationship("Datatype")
     fk_administrative_level = Column(Integer, ForeignKey('metadata.administrative_levels.gid'))
